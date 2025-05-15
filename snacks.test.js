@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, isPalindrome } = require("./snacks.js")
+const { getInitials, createSlug, average, isPalindrome, findPostById } = require("./snacks.js")
 
 
 //snack 1
@@ -41,3 +41,19 @@ test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido
     expect(() => createSlug("")).toThrow('Titolo non valido')
     expect(() => createSlug(null)).toThrow('Titolo non valido')
 })
+
+const posts = [
+    { id: 1, title: "Post numero 1" },
+    { id: 2, title: "Post numero 2" },
+    { id: 3, title: "Post numero 3" }
+]
+
+
+
+//snack 7 
+test('La funzione findPostById restituisce il post corretto dato l’array di post e l’id', () => {
+    expect(findPostById(posts, 3)).toEqual({ id: 3, title: "Post numero 3" });
+    expect(findPostById(posts, 25)).toBeNull();
+    expect(() => findPostById(posts, "string")).toThrow("Passa un id corretto");
+    expect(() => findPostById(10, 3)).toThrow("Array non corretto");
+});

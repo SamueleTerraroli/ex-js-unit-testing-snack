@@ -25,9 +25,18 @@ function isPalindrome(word) {
     const reversed = cleaned.split('').reverse().join('');
     return cleaned === reversed;
 }
+
+function findPostById(posts, id) {
+    if (!Array.isArray(posts)) throw new Error("Array non corretto");
+    if (typeof id !== "number") throw new Error("Passa un id corretto");
+
+    return posts.find(p => p.id === id) || null;
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
-    isPalindrome
+    isPalindrome,
+    findPostById
 }
