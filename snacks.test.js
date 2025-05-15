@@ -21,4 +21,5 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
     expect(average([10, 20])).toBe(15)
     expect(average([10, 20, 30, 40, 50])).toBe(30)
     expect(average([0, 20, 30, 40, 50])).toBe(28)
+    expect(() => average([0, 20, '30', 40, 50])).toThrow()
 })

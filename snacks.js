@@ -8,10 +8,14 @@ function createSlug(string) {
 }
 
 function average(num) {
+    num.forEach(numero => {
+        if (typeof numero !== "number" || isNaN(numero)) {
+            throw new Error("Inserire solo numeri!");
+        }
+    });
     const somma = num.reduce((acc, numero) => acc + numero, 0);
     return somma / num.length;
 }
-
 module.exports = {
     getInitials,
     createSlug,
