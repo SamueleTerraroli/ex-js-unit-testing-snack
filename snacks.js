@@ -7,7 +7,13 @@ function createSlug(string) {
     return string.toLowerCase()
 }
 
+function average(num) {
+    const somma = num.reduce((acc, numero) => acc + numero, 0);
+    return somma / num.length;
+}
+
 module.exports = {
     getInitials,
-    createSlug
+    createSlug,
+    average
 }
