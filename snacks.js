@@ -18,8 +18,9 @@ function average(num) {
 }
 
 function isPalindrome(word) {
-    const reversed = word.split('').reverse().join('');
-    return word === reversed;
+    const cleaned = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const reversed = cleaned.split('').reverse().join('');
+    return cleaned === reversed;
 }
 module.exports = {
     getInitials,
